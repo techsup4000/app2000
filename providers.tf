@@ -3,7 +3,13 @@ terraform {
     azurerm = {
       source = "hashicorp/azurerm"
       version = "4.6.0"
-    }
+    }    
+  }
+  backend "azurerm" {
+      resource_group_name  = "terraform-grp"
+      storage_account_name = "terraformstore45545543"
+      container_name       = "terraform-dev"
+      key                  = "terraform.tfstate"
   }
 }
 
