@@ -1,4 +1,5 @@
 // Let's say that this represents our main prod branch
+// When we want to differentiate the resources between the main branches , we will make changes to the terraform tfvars file
 
 resource_group_name="prod-grp"
 location = "North Europe"
