@@ -1,14 +1,14 @@
 // Let's say that this represents our main prod branch
 // When we want to differentiate the resources between the main branches , we will make changes to the terraform tfvars file
 
-resource_group_name="prod-grp"
+resource_group_name="dev-grp"
 location = "North Europe"
-vnet_name="prod-network"
-vnet_address_prefix="10.0.0.0/16"
-vnet_subnet_count=2
-network_interfaces_count=2
-public_ip_address_count=2
-virtual_machine_count=2
+vnet_name="dev-network"
+vnet_address_prefix="10.1.0.0/16"
+vnet_subnet_count=1
+network_interfaces_count=1
+public_ip_address_count=1
+virtual_machine_count=1
 network_security_group_rules=[
     {
       priority=300
