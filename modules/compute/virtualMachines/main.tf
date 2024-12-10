@@ -24,4 +24,24 @@ resource "azurerm_linux_virtual_machine" "appvm" {
   }
 }
 
+// Just adding data disks to the virtual machines
 
+resource "azurerm_managed_disk" "datadisk" {
+  count = var.virtual_machine_count
+  name                 = "datadisk${count.index}"
+  location             = var.location
+  resource_group_name  = var.resource_group_name
+  storage_account_type = "Standard_LRS"
+  create_option        = "Empty"
+  disk_size_gb         = "4"
+
+}
+
+
+resource "azurerm_virtual_machine_data_disk_attachment" "datadisk_attachment" {
+  count = var.virtual_machine_count
+  managed_disk_id    = azurerm_managed_disk.datadisk[count.index].id
+  virtual_machine_id = azurerm_linux_virtual_machine.appvm[count.index].id
+  lun                = "0"
+  caching            = "ReadWrite"
+}
