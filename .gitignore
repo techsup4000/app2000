@@ -1,0 +1,5 @@
+# Ignore the local terraform directories
+**/.terraform/*
+
+#Ignore the local terraform executable
+terraform.exe
