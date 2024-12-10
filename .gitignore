@@ -3,3 +3,8 @@
 
 #Ignore the local terraform executable
 terraform.exe
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+.terraform.tfstate.lock.info

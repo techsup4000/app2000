@@ -34,7 +34,7 @@ resource "azurerm_managed_disk" "datadisk" {
   storage_account_type = "Standard_LRS"
   create_option        = "Empty"
   disk_size_gb         = "4"
-
+  depends_on = [ azurerm_linux_virtual_machine.appvm ]
 }
 
 
